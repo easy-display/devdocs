@@ -15,6 +15,8 @@ class app.views.Mobile extends app.View
 
   @detect: ->
     try
+      isEasydisplay = /easydisplay/.test(window.location.href)
+      throw ("force-desktop") if isEasydisplay
       (window.matchMedia('(max-width: 480px)').matches) or
       (window.matchMedia('(max-width: 767px)').matches) or
       (window.matchMedia('(max-height: 767px) and (max-width: 1024px)').matches) or
